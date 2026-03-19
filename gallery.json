@@ -1,0 +1,82 @@
+﻿[
+  {
+    "id": 1,
+    "image": "images/557086894_122134606790904873_7313724343482866907_n.jpg",
+    "roomName": "Linen Serenity Bedroom",
+    "category": "Bedroom",
+    "tags": ["linen", "storage", "headboard"],
+    "description": "Layered linens and hidden storage create a calm retreat."
+  },
+  {
+    "id": 2,
+    "image": "images/557115400_122132776844904873_3985610575456837028_n.jpg",
+    "roomName": "Kids Explorer Suite",
+    "category": "Kids Room",
+    "tags": ["modular", "durable", "playful"],
+    "description": "Colorful hardware and modular shelving keep the room ready for every adventure."
+  },
+  {
+    "id": 3,
+    "image": "images/556432004_122134180940904873_630124047064482578_n.jpg",
+    "roomName": "Couture Couches",
+    "category": "Couches & Lounges",
+    "tags": ["custom", "deep seating", "textured"],
+    "description": "Bespoke upholstery and textured pillows for lingering conversations."
+  },
+  {
+    "id": 4,
+    "image": "images/557717310_122134181000904873_6139736172668088212_n.jpg",
+    "roomName": "Gallery Kitchen",
+    "category": "Kitchen",
+    "tags": ["marble", "prep", "open plan"],
+    "description": "Marble worktops and architectural grids keep every chef inspired."
+  },
+  {
+    "id": 5,
+    "image": "images/555732834_122132649224904873_3996371935308415350_n.jpg",
+    "roomName": "Salon & Entry",
+    "category": "Salon & Entry",
+    "tags": ["ceremony", "rugs", "lighting"],
+    "description": "Statement seating paired with sculptural lighting welcomes guests."
+  },
+  {
+    "id": 6,
+    "image": "images/557551318_122134181018904873_2491592712817081493_n.jpg",
+    "roomName": "First Impression",
+    "category": "Entrée",
+    "tags": ["console", "mirror", "storage"],
+    "description": "Crafted consoles, mirrors, and hidden drawers define the foyer."
+  },
+  {
+    "id": 7,
+    "image": "images/549771716_122131535492904873_4786114191187566194_n.jpg",
+    "roomName": "Gathering Sofas",
+    "category": "Sofas",
+    "tags": ["foam", "tailored", "navy"],
+    "description": "Custom lengths, premium foams, and tailored stitching for relaxed gatherings."
+  },
+  {
+    "id": 8,
+    "image": "images/553146481_122132649200904873_5712447128769017181_n.jpg",
+    "roomName": "Statement Living",
+    "category": "Statement Living",
+    "tags": ["architectural", "neutral", "art"],
+    "description": "Textured surfaces and sculptural pieces anchor the lounge."
+  },
+  {
+    "id": 9,
+    "image": "images/547463871_122131535504904873_1959018591388426528_n.jpg",
+    "roomName": "Monochrome Salon",
+    "category": "Salon & Entry",
+    "tags": ["monochrome", "lounge", "contrast"],
+    "description": "Wide salon set with moody contrast for bold gatherings."
+  },
+  {
+    "id": 10,
+    "image": "images/549283401_122131535450904873_7154964457378101459_n.jpg",
+    "roomName": "Studio Kitchen",
+    "category": "Kitchen",
+    "tags": ["open shelves", "prep", "light"],
+    "description": "Sunlit kitchen with open shelving and purposeful prep zones."
+  }
+]

@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deqah Furniture Showroom</title>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              accent: '#d17c41',
+              'accent-dark': '#b15f2f',
+              muted: '#5b5b5b',
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-[#f7f5f2] text-[#1f1f1f] antialiased">
+    <header class="sticky top-0 z-20 border-b border-black/5 bg-white/75 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4">
+        <a class="flex items-center gap-3" href="#">
+          <img class="h-14 w-14 rounded-2xl border border-black/10 object-cover shadow-lg" src="images/logo.jpg" alt="Deqah Furniture logo" />
+          <div class="flex flex-col text-xs uppercase tracking-[0.35em]">
+            <span class="text-[0.9rem] font-semibold text-accent">Deqah</span>
+            <span class="text-[0.65rem] text-muted">Furniture</span>
+          </div>
+        </a>
+        <nav class="hidden gap-6 text-sm font-semibold text-[#1f1f1f] md:flex">
+          <a class="transition hover:text-accent" href="#collection">Collections</a>
+          <a class="transition hover:text-accent" href="#gallery">Gallery</a>
+          <a class="transition hover:text-accent" href="#contact">Contact</a>
+        </nav>
+        <div class="hidden gap-2 text-sm font-semibold md:flex">
+          <a class="flex items-center gap-1 rounded-full border border-[#1e4b9f]/40 px-4 py-2 text-[#1e4b9f] transition hover:bg-[#1e4b9f]/10" href="https://www.facebook.com/profile.php?id=61577146208164" target="_blank" rel="noreferrer">
+            <span aria-hidden="true" class="text-lg">f</span>
+            Facebook
+          </a>
+          <a class="flex items-center gap-1 rounded-full border border-[#c13584]/40 px-4 py-2 text-[#c13584] transition hover:bg-[#c13584]/10" href="https://www.instagram.com/deqahfurniture" target="_blank" rel="noreferrer">
+            <span aria-hidden="true" class="text-lg">IG</span>
+            Instagram
+          </a>
+          <a class="flex items-center gap-1 rounded-full border border-[#128c7e]/40 px-4 py-2 text-[#128c7e] transition hover:bg-[#128c7e]/10" href="https://wa.me/201055552574" target="_blank" rel="noreferrer">
+            <span aria-hidden="true" class="text-lg">WA</span>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="space-y-16">
+      <section class="relative overflow-hidden bg-[#181818] text-white" id="hero">
+        <div class="absolute inset-0" style="background-image: linear-gradient(135deg, rgba(24,24,24,0.95), rgba(24,24,24,0.65)), url('images/cover_photo.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="relative mx-auto flex max-w-6xl flex-col gap-6 px-6 py-20 md:flex-row md:items-center md:gap-16">
+          <div class="max-w-2xl space-y-5">
+            <p class="text-xs uppercase tracking-[0.45em] text-white/70">Damietta craftsmanship · Egypt</p>
+            <h1 class="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">Modern living starts with intent.</h1>
+            <p class="text-base text-white/80">
+              Deqah Furniture blends artisan woodwork with sleek silhouettes so every room in your home feels tailored, calm, and unmistakably yours. Explore our curated collections for bedrooms,
+              salons, kitchens, and more.
+            </p>
+            <div class="flex flex-wrap gap-3 pt-4">
+              <a class="rounded-full bg-accent px-6 py-3 text-xs font-semibold uppercase tracking-[0.45em] text-white shadow-lg transition hover:bg-[color:var(--accent-dark)]" href="#collection">Browse collections</a>
+              <a class="rounded-full border border-white/60 px-6 py-3 text-xs font-semibold uppercase tracking-[0.45em] text-white transition hover:bg-white hover:text-[#181818]" href="#contact">Visit showroom</a>
+            </div>
+            <div class="flex flex-wrap gap-6 text-sm text-white/80">
+              <span>+20 10 55552574</span>
+              <span>deqahfurniture@gmail.com</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-6" id="collection">
+        <div class="mb-10 space-y-3">
+          <p class="text-xs uppercase tracking-[0.35em] text-muted">Rooms & Living Areas</p>
+          <h2 class="text-3xl font-semibold leading-tight">Focused collections for every atmosphere</h2>
+          <p class="text-base text-muted">Rooms should feel effortless. Pick from our living, bedroom, kids, or kitchen suites and watch the space fall into balance.</p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
+            <div class="h-48 bg-cover bg-center" style="background-image:url('images/557086894_122134606790904873_7313724343482866907_n.jpg')"></div>
+            <div class="p-5 space-y-3">
+              <p class="text-xs uppercase tracking-[0.4em] text-muted">Bedrooms</p>
+              <h3 class="text-xl font-semibold">Linen Serenity</h3>
+              <p class="text-sm text-muted">Soft linen palettes, storage-savvy cabinetry, and statement headboards fuel peaceful sleep.</p>
+            </div>
+          </article>
+          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
+            <div class="h-48 bg-cover bg-center" style="background-image:url('images/557115400_122132776844904873_3985610575456837028_n.jpg')"></div>
+            <div class="p-5 space-y-3">
+              <p class="text-xs uppercase tracking-[0.4em] text-muted">Kids Room</p>
+              <h3 class="text-xl font-semibold">Kids Explorer Suite</h3>
+              <p class="text-sm text-muted">Playful colors, durable finishes, and modular pieces that grow with the child.</p>
+            </div>
+          </article>
+          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
+            <div class="h-48 bg-cover bg-center" style="background-image:url('images/556432004_122134180940904873_630124047064482578_n.jpg')"></div>
+            <div class="p-5 space-y-3">
+              <p class="text-xs uppercase tracking-[0.4em] text-muted">Couches &amp; Lounges</p>
+              <h3 class="text-xl font-semibold">Couture Couches</h3>
+              <p class="text-sm text-muted">Deep seats, bespoke upholstery, and silhouettes that anchor your salon with comfort.</p>
+            </div>
+          </article>
+          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
+            <div class="h-48 bg-cover bg-center" style="background-image:url('images/557717310_122134181000904873_6139736172668088212_n.jpg')"></div>
+            <div class="p-5 space-y-3">
+              <p class="text-xs uppercase tracking-[0.4em] text-muted">Kitchen</p>
+              <h3 class="text-xl font-semibold">Gallery Kitchen</h3>
+              <p class="text-sm text-muted">Modern grids, marble accents, and worktops engineered for daily creativity.</p>
+            </div>
+          </article>
+          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
+            <div class="h-48 bg-cover bg-center" style="background-image:url('images/555732834_122132649224904873_3996371935308415350_n.jpg')"></div>
+            <div class="p-5 space-y-3">
+              <p class="text-xs uppercase tracking-[0.4em] text-muted">Salon &amp; Entry</p>
+              <h3 class="text-xl font-semibold">Salon &amp; Entry</h3>
+              <p class="text-sm text-muted">Versatile seating, polished woods, rugs, and lighting for ceremonial moments.</p>
+            </div>
+          </article>
+          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
+            <div class="h-48 bg-cover bg-center" style="background-image:url('images/557551318_122134181018904873_2491592712817081493_n.jpg')"></div>
+            <div class="p-5 space-y-3">
+              <p class="text-xs uppercase tracking-[0.4em] text-muted">Entrée</p>
+              <h3 class="text-xl font-semibold">First Impression</h3>
+              <p class="text-sm text-muted">Console tables, mirrors, and storage pieces that define the first impression.</p>
+            </div>
+          </article>
+          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
+            <div class="h-48 bg-cover bg-center" style="background-image:url('images/549771716_122131535492904873_4786114191187566194_n.jpg')"></div>
+            <div class="p-5 space-y-3">
+              <p class="text-xs uppercase tracking-[0.4em] text-muted">Sofas</p>
+              <h3 class="text-xl font-semibold">Gathering Sofas</h3>
+              <p class="text-sm text-muted">Custom lengths, premium foams, and tailored stitching for your favorite gatherings.</p>
+            </div>
+          </article>
+          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
+            <div class="h-48 bg-cover bg-center" style="background-image:url('images/553146481_122132649200904873_5712447128769017181_n.jpg')"></div>
+            <div class="p-5 space-y-3">
+              <p class="text-xs uppercase tracking-[0.4em] text-muted">Statement Living</p>
+              <h3 class="text-xl font-semibold">Statement Living</h3>
+              <p class="text-sm text-muted">Architectural pieces, textured surfaces, and neutral palettes for calm confidence.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-6" id="gallery">
+        <div class="mb-8 space-y-2">
+          <p class="text-xs uppercase tracking-[0.35em] text-muted">Imagine the space</p>
+          <h2 class="text-3xl font-semibold leading-tight">Photo tour from our Damietta showroom</h2>
+        </div>
+        <div class="flex flex-wrap items-end gap-4" aria-label="Gallery controls">
+          <label class="flex flex-col gap-1 text-[0.65rem] uppercase tracking-[0.3em] text-muted">
+            <span>Category</span>
+            <select id="categoryFilter" class="rounded-[12px] border border-black/10 bg-white px-3 py-2 text-sm focus:border-accent focus:outline-none">
+              <option value="all">All rooms</option>
+            </select>
+          </label>
+          <label class="flex flex-col gap-1 text-[0.65rem] uppercase tracking-[0.3em] text-muted">
+            <span>Tag</span>
+            <select id="tagFilter" class="rounded-[12px] border border-black/10 bg-white px-3 py-2 text-sm focus:border-accent focus:outline-none">
+              <option value="all">All tags</option>
+            </select>
+          </label>
+          <label class="flex flex-col gap-1 text-[0.65rem] uppercase tracking-[0.3em] text-muted">
+            <span>Sort</span>
+            <select id="sortSelect" class="rounded-[12px] border border-black/10 bg-white px-3 py-2 text-sm focus:border-accent focus:outline-none">
+              <option value="name-asc">Room name ?</option>
+              <option value="name-desc">Room name ?</option>
+            </select>
+          </label>
+          <label class="flex flex-1 min-w-[220px] flex-col gap-1 text-[0.65rem] uppercase tracking-[0.3em] text-muted">
+            <span>Search</span>
+            <input id="searchInput" type="search" placeholder="Search rooms or tags" class="rounded-[12px] border border-black/10 bg-white px-3 py-2 text-sm focus:border-accent focus:outline-none" />
+          </label>
+        </div>
+        <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3" id="dynamicGallery"></div>
+        <p id="galleryEmpty" class="mt-6 text-sm text-muted hidden">No rooms match your filters.</p>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-6" id="contact">
+        <div class="mb-8 space-y-2">
+          <p class="text-xs uppercase tracking-[0.35em] text-muted">Stay connected</p>
+          <h2 class="text-3xl font-semibold leading-tight">Visit, call, or message us</h2>
+          <p class="text-base text-muted">Deqah Furniture is headquartered in Damietta, Egypt. Our showroom hosts private consultations every day—book ahead to secure designers, upholsterers, and delivery partners in one visit.</p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="rounded-[24px] border border-black/5 bg-white p-6 shadow-lg">
+            <h3 class="text-xl font-semibold">Contact details</h3>
+            <p class="mt-4 text-sm text-muted"><strong class="text-[#1f1f1f]">Phone / WhatsApp</strong><br />+20 10 55552574</p>
+            <p class="mt-2 text-sm text-muted"><strong class="text-[#1f1f1f]">Email</strong><br />deqahfurniture@gmail.com</p>
+            <p class="mt-2 text-sm text-muted"><strong class="text-[#1f1f1f]">Website</strong><br /><a class="text-accent" href="https://deqahfurniture.com/">deqahfurniture.com</a></p>
+          </div>
+          <div class="rounded-[24px] border border-black/5 bg-white p-6 shadow-lg">
+            <h3 class="text-xl font-semibold">Social</h3>
+            <p class="mt-3 text-sm text-muted">Follow Deqah Furniture for real-time showroom drops.</p>
+            <div class="mt-4 flex flex-wrap gap-3">
+              <a class="flex items-center gap-2 rounded-full border border-[#1e4b9f]/40 px-4 py-2 text-sm font-semibold text-[#1e4b9f] transition hover:bg-[#1e4b9f]/10" href="https://www.facebook.com/profile.php?id=61577146208164" target="_blank" rel="noreferrer">
+                <span aria-hidden="true" class="text-lg">f</span>
+                Facebook
+              </a>
+              <a class="flex items-center gap-2 rounded-full border border-[#c13584]/40 px-4 py-2 text-sm font-semibold text-[#c13584] transition hover:bg-[#c13584]/10" href="https://www.instagram.com/deqahfurniture" target="_blank" rel="noreferrer">
+                <span aria-hidden="true" class="text-lg">??</span>
+                Instagram
+              </a>
+              <a class="flex items-center gap-2 rounded-full border border-[#128c7e]/40 px-4 py-2 text-sm font-semibold text-[#128c7e] transition hover:bg-[#128c7e]/10" href="https://wa.me/201055552574" target="_blank" rel="noreferrer">
+                <span aria-hidden="true" class="text-lg">??</span>
+                WhatsApp
+              </a>
+            </div>
+            <p class="mt-4 text-sm text-muted"><a class="text-[#1f1f1f] font-semibold" href="https://www.bing.com/maps/search?v=2&pc=FACEBK&mid=8100&mkt=en-GB&q=%D9%85%D8%B5%D8%B1%2C+Damietta%2C+Egypt">Showroom in Damietta</a></p>
+          </div>
+          <div class="rounded-[24px] border border-black/5 bg-white p-6 shadow-lg">
+            <h3 class="text-xl font-semibold">Visit hours</h3>
+            <p class="mt-4 text-sm text-muted"><strong class="text-[#1f1f1f]">Sunday–Thursday</strong><br />10:00 AM – 7:00 PM</p>
+            <p class="mt-2 text-sm text-muted"><strong class="text-[#1f1f1f]">Friday</strong><br />11:00 AM – 5:00 PM</p>
+            <p class="mt-2 text-sm text-muted"><strong class="text-[#1f1f1f]">Saturday</strong><br />By appointment</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-16 border-t border-black/5 bg-white/70 pb-12 pt-8">
+      <div class="mx-auto max-w-6xl px-6 text-center text-sm text-muted">
+        © 2026 Deqah Furniture · Damietta, Egypt
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        const galleryGrid = document.getElementById('dynamicGallery');
+        const emptyState = document.getElementById('galleryEmpty');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const tagFilter = document.getElementById('tagFilter');
+        const sortSelect = document.getElementById('sortSelect');
+        const searchInput = document.getElementById('searchInput');
+        let galleryItems = [];
+
+        const populateFilters = (items) => {
+          const categories = Array.from(new Set(items.map((item) => item.category))).sort();
+          categoryFilter.innerHTML =
+            '<option value="all">All rooms</option>' +
+            categories.map((cat) => `<option value="${cat}">${cat}</option>`).join('');
+
+          const tags = Array.from(new Set(items.flatMap((item) => item.tags))).sort();
+          tagFilter.innerHTML =
+            '<option value="all">All tags</option>' +
+            tags.map((tag) => `<option value="${tag}">${tag}</option>`).join('');
+        };
+
+        const renderGallery = (items) => {
+          if (!items.length) {
+            galleryGrid.innerHTML = '';
+            emptyState.classList.remove('hidden');
+            return;
+          }
+
+          emptyState.classList.add('hidden');
+          galleryGrid.innerHTML = '';
+
+          items.forEach((item) => {
+            const card = document.createElement('article');
+            card.className = 'flex flex-col rounded-[32px] bg-white p-0 shadow-xl transition duration-200 hover:-translate-y-2 hover:shadow-2xl min-h-[360px] overflow-hidden';
+            card.innerHTML = `
+              <div class="h-[210px] bg-cover bg-center" style="background-image: url('${item.image}')"></div>
+              <div class="flex flex-col gap-3 p-5">
+                <div class="flex flex-col gap-1">
+                  <p class="text-[0.65rem] uppercase tracking-[0.35em] text-muted">${item.category}</p>
+                  <h3 class="text-xl font-semibold">${item.roomName}</h3>
+                </div>
+                <p class="text-sm text-muted">${item.description}</p>
+                <div class="flex flex-wrap gap-2">
+                  ${item.tags
+                    .map(
+                      (tag) =>
+                        `<span class="inline-flex items-center gap-1 rounded-full border border-accent/30 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-accent">${tag}</span>`
+                    )
+                    .join('')}
+                </div>
+              </div>
+            `;
+            galleryGrid.appendChild(card);
+          });
+        };
+
+        const applyFilters = () => {
+          if (!galleryItems.length) return;
+
+          let filtered = [...galleryItems];
+          const category = categoryFilter.value;
+          const tag = tagFilter.value;
+          const searchTerm = searchInput.value.trim().toLowerCase();
+
+          if (category !== 'all') {
+            filtered = filtered.filter((item) => item.category === category);
+          }
+
+          if (tag !== 'all') {
+            filtered = filtered.filter((item) => item.tags.includes(tag));
+          }
+
+          if (searchTerm) {
+            filtered = filtered.filter(
+              (item) =>
+                item.roomName.toLowerCase().includes(searchTerm) ||
+                item.tags.some((t) => t.toLowerCase().includes(searchTerm))
+            );
+          }
+
+          const sortValue = sortSelect.value;
+          filtered.sort((a, b) =>
+            sortValue === 'name-asc' ? a.roomName.localeCompare(b.roomName) : b.roomName.localeCompare(a.roomName)
+          );
+
+          renderGallery(filtered);
+        };
+
+        [categoryFilter, tagFilter, sortSelect, searchInput].forEach((control) =>
+          control.addEventListener('input', applyFilters)
+        );
+
+        fetch('gallery.json')
+          .then((response) => {
+            if (!response.ok) throw new Error('Gallery data failed to load');
+            return response.json();
+          })
+          .then((data) => {
+            galleryItems = data;
+            populateFilters(data);
+            applyFilters();
+          })
+          .catch(() => {
+            galleryGrid.innerHTML = '<p class="text-sm text-red-600">Unable to load gallery metadata.</p>';
+            emptyState.classList.add('hidden');
+          });
+      })();
+    </script>
+  </body>
+</html>
+
+
+
