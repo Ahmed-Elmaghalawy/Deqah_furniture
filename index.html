@@ -45,40 +45,55 @@
         min-height: 100vh;
         overflow-x: hidden;
         background:
-          radial-gradient(circle at 15% 5%, rgba(20, 184, 166, .18), transparent 30rem),
-          radial-gradient(circle at 85% 8%, rgba(192, 38, 211, .15), transparent 28rem),
-          linear-gradient(135deg, #f8fafc 0%, #eef4ff 45%, #fbf7ef 100%);
+          linear-gradient(125deg, rgba(20, 184, 166, .13), transparent 32%),
+          linear-gradient(235deg, rgba(192, 38, 211, .12), transparent 34%),
+          linear-gradient(180deg, #fbf8f2 0%, #f7fbff 48%, #fff7f5 100%);
+        transition: background .8s ease, color .45s ease;
       }
 
       body[dir="rtl"] {
         font-family: Tahoma, Arial, sans-serif;
       }
 
+      [data-i18n],
+      #shopGrid,
+      #galleryFilters,
+      #galleryGrid {
+        transition: opacity .34s ease, transform .34s ease, filter .34s ease;
+      }
+
+      body.lang-switching [data-i18n],
+      body.lang-switching #shopGrid,
+      body.lang-switching #galleryFilters,
+      body.lang-switching #galleryGrid {
+        opacity: 0;
+        transform: translateY(8px);
+        filter: blur(4px);
+      }
+
       .glass {
-        border: 1px solid rgba(255, 255, 255, .68);
-        background: linear-gradient(145deg, rgba(255,255,255,.72), rgba(255,255,255,.38));
-        box-shadow: 0 24px 80px rgba(15, 23, 42, .12), inset 0 1px 0 rgba(255,255,255,.8);
+        border: 1px solid rgba(255, 255, 255, .76);
+        background: linear-gradient(145deg, rgba(255,255,255,.76), rgba(255,255,255,.44));
+        box-shadow: 0 24px 80px rgba(88, 63, 42, .12), inset 0 1px 0 rgba(255,255,255,.88);
         backdrop-filter: blur(24px) saturate(150%);
         -webkit-backdrop-filter: blur(24px) saturate(150%);
       }
 
       .glass-dark {
-        border: 1px solid rgba(255, 255, 255, .22);
-        background: linear-gradient(145deg, rgba(15,23,42,.72), rgba(15,23,42,.38));
-        box-shadow: 0 30px 90px rgba(2, 6, 23, .34), inset 0 1px 0 rgba(255,255,255,.16);
+        border: 1px solid rgba(255, 255, 255, .26);
+        background: linear-gradient(145deg, rgba(30,28,25,.76), rgba(26,32,36,.46));
+        box-shadow: 0 30px 90px rgba(44, 28, 19, .32), inset 0 1px 0 rgba(255,255,255,.18);
         backdrop-filter: blur(26px) saturate(140%);
         -webkit-backdrop-filter: blur(26px) saturate(140%);
       }
 
       .aurora {
         position: absolute;
-        inset: auto -8rem -10rem auto;
-        width: min(42vw, 34rem);
-        aspect-ratio: 1;
-        border-radius: 999px;
-        background: conic-gradient(from 90deg, rgba(20,184,166,.52), rgba(37,99,235,.45), rgba(192,38,211,.4), rgba(201,130,66,.42), rgba(20,184,166,.52));
-        filter: blur(42px);
-        opacity: .74;
+        inset: auto 0 -18rem 0;
+        height: 24rem;
+        background: linear-gradient(90deg, rgba(20,184,166,.26), rgba(201,130,66,.2), rgba(192,38,211,.2));
+        filter: blur(46px);
+        opacity: .7;
         animation: floaty 12s ease-in-out infinite alternate;
       }
 
@@ -109,15 +124,34 @@
         filter: saturate(1.08) contrast(1.03);
       }
 
+      .soft-detail {
+        position: relative;
+      }
+
+      .soft-detail > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .soft-detail::after {
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        inset: 1px;
+        border-radius: inherit;
+        background: linear-gradient(135deg, rgba(255,255,255,.34), transparent 38%, rgba(255,255,255,.18));
+        opacity: .72;
+      }
+
       @keyframes floaty {
-        from { transform: translate3d(0, 0, 0) rotate(0deg); }
-        to { transform: translate3d(-4rem, -2rem, 0) rotate(16deg); }
+        from { transform: translate3d(0, 0, 0); }
+        to { transform: translate3d(0, -2rem, 0); }
       }
     </style>
   </head>
   <body class="font-display text-ink antialiased">
     <header class="fixed inset-x-0 top-0 z-50 px-3 py-3">
-      <div class="glass mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-[28px] px-4 py-3">
+      <div class="glass soft-detail mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-[34px] px-4 py-3">
         <a href="#home" class="flex min-w-0 items-center gap-3">
           <img src="images/logo.jpg" alt="Deqah Furniture logo" class="h-12 w-12 rounded-2xl object-cover shadow-lg ring-1 ring-white/70" />
           <span class="min-w-0">
@@ -136,7 +170,7 @@
         <div class="flex items-center gap-2">
           <button class="lang-btn active rounded-full border border-slate-200 bg-white/60 px-3 py-2 text-xs font-black transition" data-lang="en" aria-label="Switch to English">🇬🇧 EN</button>
           <button class="lang-btn rounded-full border border-slate-200 bg-white/60 px-3 py-2 text-xs font-black transition" data-lang="ar" aria-label="Switch to Arabic">🇦🇪 عربي</button>
-          <a href="https://wa.me/201055552574" target="_blank" rel="noreferrer" class="hidden rounded-full bg-[#25D366] px-4 py-2 text-sm font-black text-white shadow-lg shadow-emerald-500/20 transition hover:-translate-y-0.5 sm:inline-flex" data-i18n="waNow">WhatsApp</a>
+          <a href="https://wa.me/201055552574?text=Hello%20Deqah%20Furniture%2C%20I%20want%20to%20ask%20about%20custom%20furniture." target="_blank" rel="noreferrer" class="hidden rounded-full bg-[#25D366] px-4 py-2 text-sm font-black text-white shadow-lg shadow-emerald-500/20 transition hover:-translate-y-0.5 sm:inline-flex" data-i18n="waNow">WhatsApp</a>
         </div>
       </div>
     </header>
@@ -159,11 +193,11 @@
             <p class="mt-6 max-w-2xl text-lg leading-8 text-white/82" data-i18n="heroText">Deqah Furniture builds modern home furniture from the factory floor to the final room: bedrooms, kitchens, sofas, salons, kids rooms, wardrobes, TV units, dining sets, offices, and custom projects.</p>
             <div class="mt-8 flex flex-wrap gap-3">
               <a href="#shop" class="rounded-full bg-white px-6 py-3 text-sm font-black text-ink shadow-glow transition hover:-translate-y-1" data-i18n="heroShop">Explore shop</a>
-              <a href="https://wa.me/201055552574" target="_blank" rel="noreferrer" class="rounded-full border border-white/35 bg-white/12 px-6 py-3 text-sm font-black text-white backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/22" data-i18n="heroQuote">Get a quote</a>
+              <a href="https://wa.me/201055552574?text=Hello%20Deqah%20Furniture%2C%20I%20want%20a%20custom%20furniture%20quote.%20I%20can%20send%20room%20dimensions%20and%20reference%20photos." target="_blank" rel="noreferrer" class="rounded-full border border-white/35 bg-white/12 px-6 py-3 text-sm font-black text-white backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/22" data-i18n="heroQuote">Get a quote</a>
             </div>
           </div>
 
-          <div class="reveal glass-dark rounded-[36px] p-4">
+          <div class="reveal glass-dark soft-detail rounded-[44px] p-4">
             <div class="grid grid-cols-2 gap-3">
               <img src="images/logo.jpg" alt="Deqah Furniture logo" class="col-span-1 h-48 w-full rounded-[26px] object-cover" />
               <div class="rounded-[26px] bg-white/12 p-5">
@@ -197,7 +231,7 @@
               <h2 class="mt-3 text-4xl font-black tracking-normal md:text-5xl" data-i18n="shopTitle">Everything the factory can make</h2>
               <p class="mt-4 max-w-3xl text-slate-600" data-i18n="shopText">Choose a product family, send dimensions on WhatsApp, and Deqah can tailor the size, wood, upholstery, color, storage, hardware, and finish.</p>
             </div>
-            <div class="glass rounded-full p-1">
+            <div class="glass soft-detail rounded-full p-1">
               <button class="chip active rounded-full border border-transparent px-4 py-2 text-sm font-black transition" data-category="all" data-i18n="filterAll">All</button>
               <button class="chip rounded-full border border-transparent px-4 py-2 text-sm font-black transition" data-category="rooms" data-i18n="filterRooms">Rooms</button>
               <button class="chip rounded-full border border-transparent px-4 py-2 text-sm font-black transition" data-category="details" data-i18n="filterDetails">Details</button>
@@ -209,7 +243,7 @@
       </section>
 
       <section id="factory" class="px-4 py-16">
-        <div class="glass relative mx-auto grid max-w-7xl overflow-hidden rounded-[42px] p-6 md:grid-cols-[.9fr_1.1fr] md:p-10">
+        <div class="glass soft-detail relative mx-auto grid max-w-7xl overflow-hidden rounded-[48px] p-6 md:grid-cols-[.9fr_1.1fr] md:p-10">
           <div class="reveal relative z-10">
             <p class="text-sm font-black uppercase tracking-[.22em] text-ocean" data-i18n="factoryKicker">Factory workflow</p>
             <h2 class="mt-3 text-4xl font-black tracking-normal" data-i18n="factoryTitle">From idea to installed room</h2>
@@ -236,7 +270,7 @@
               <h2 class="mt-3 text-4xl font-black tracking-normal md:text-5xl" data-i18n="galleryTitle">Real furniture photos</h2>
               <p class="mt-4 max-w-2xl text-slate-600" data-i18n="galleryText">Browse the full local image library from Deqah Furniture and filter by category.</p>
             </div>
-            <label class="glass flex min-w-[240px] items-center gap-3 rounded-full px-4 py-3">
+            <label class="glass soft-detail flex min-w-[240px] items-center gap-3 rounded-full px-4 py-3">
               <span class="text-sm font-black" data-i18n="searchLabel">Search</span>
               <input id="gallerySearch" type="search" class="w-full bg-transparent text-sm outline-none placeholder:text-slate-400" placeholder="sofa, kitchen, bedroom" />
             </label>
@@ -244,20 +278,20 @@
           <div id="galleryFilters" class="mb-8 flex flex-wrap gap-2"></div>
           <div id="galleryGrid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
           <div class="mt-10 text-center">
-            <button id="loadMore" class="glass rounded-full px-7 py-3 text-sm font-black transition hover:-translate-y-1" data-i18n="loadMore">Load more photos</button>
+            <button id="loadMore" class="glass soft-detail rounded-full px-7 py-3 text-sm font-black transition hover:-translate-y-1" data-i18n="loadMore">Load more photos</button>
           </div>
         </div>
       </section>
 
       <section id="contact" class="px-4 pb-10 pt-16">
-        <div class="glass-dark mx-auto max-w-7xl overflow-hidden rounded-[42px] p-6 text-white md:p-10">
+        <div class="glass-dark soft-detail mx-auto max-w-7xl overflow-hidden rounded-[48px] p-6 text-white md:p-10">
           <div class="grid gap-8 lg:grid-cols-[1fr_.9fr]">
             <div class="reveal">
               <p class="text-sm font-black uppercase tracking-[.22em] text-white/60" data-i18n="contactKicker">Contact</p>
               <h2 class="mt-3 text-4xl font-black tracking-normal md:text-5xl" data-i18n="contactTitle">Visit, call, or message Deqah</h2>
               <p class="mt-4 max-w-2xl text-white/70" data-i18n="contactText">Based in Damietta, Egypt. Send your room dimensions and inspiration, or follow the showroom updates on social media.</p>
               <div class="mt-8 flex flex-wrap gap-3">
-                <a class="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1" href="https://wa.me/201055552574" target="_blank" rel="noreferrer">
+                <a class="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1" href="https://wa.me/201055552574?text=Hello%20Deqah%20Furniture%2C%20I%20want%20to%20book%20a%20consultation%20and%20share%20my%20furniture%20requirements." target="_blank" rel="noreferrer">
                   <span class="grid h-7 w-7 place-items-center rounded-full bg-white text-[#25D366]">☎</span>
                   WhatsApp 01055552574
                 </a>
@@ -412,6 +446,76 @@
         ['Custom Projects', 'مشروعات تفصيل', 'Any room concept can be measured, designed, manufactured, and installed.', 'أي فكرة غرفة يمكن رفع مقاسها وتصميمها وتصنيعها وتركيبها.', 'rooms', 'images/549324224_122131327802904873_8430820305447051412_n.jpg']
       ];
 
+      const productPrompts = {
+        'Bedrooms': {
+          en: 'Hello Deqah Furniture, I want a custom bedroom quote. I can send room dimensions, bed size, wardrobe needs, preferred colors, and reference photos.',
+          ar: 'السلام عليكم دقة للأثاث، أريد عرض سعر لغرفة نوم تفصيل. يمكنني إرسال مقاسات الغرفة، مقاس السرير، تفاصيل الدولاب، الألوان المفضلة، وصور مرجعية.'
+        },
+        'Sofas & Sectionals': {
+          en: 'Hello Deqah Furniture, I want a custom sofa or sectional quote. I can send the wall measurements, seating capacity, fabric preference, color, and reference photos.',
+          ar: 'السلام عليكم دقة للأثاث، أريد عرض سعر لكنبة أو ركنة تفصيل. يمكنني إرسال مقاسات الحائط، عدد المقاعد، نوع القماش، اللون، وصور مرجعية.'
+        },
+        'Salon & Majlis': {
+          en: 'Hello Deqah Furniture, I want a salon or majlis quote. I can send room dimensions, seating layout, preferred style, fabric, wood finish, and delivery location.',
+          ar: 'السلام عليكم دقة للأثاث، أريد عرض سعر لصالون أو مجلس. يمكنني إرسال مقاسات الغرفة، توزيع الجلسة، الستايل المفضل، القماش، لون الخشب، ومكان التسليم.'
+        },
+        'Kitchens': {
+          en: 'Hello Deqah Furniture, I want a custom kitchen quote. I can send kitchen dimensions, appliance sizes, cabinet layout, countertop preference, colors, and reference photos.',
+          ar: 'السلام عليكم دقة للأثاث، أريد عرض سعر لمطبخ تفصيل. يمكنني إرسال مقاسات المطبخ، مقاسات الأجهزة، توزيع الوحدات، نوع السطح، الألوان، وصور مرجعية.'
+        },
+        'Kids Rooms': {
+          en: 'Hello Deqah Furniture, I want a kids room quote. I can send room dimensions, child age, bed type, study area needs, storage needs, colors, and reference photos.',
+          ar: 'السلام عليكم دقة للأثاث، أريد عرض سعر لغرفة أطفال. يمكنني إرسال مقاسات الغرفة، عمر الطفل، نوع السرير، احتياج المكتب، التخزين، الألوان، وصور مرجعية.'
+        },
+        'Dining Rooms': {
+          en: 'Hello Deqah Furniture, I want a dining room quote. I can send table size, number of chairs, buffet or display needs, finish color, and reference photos.',
+          ar: 'السلام عليكم دقة للأثاث، أريد عرض سعر لغرفة سفرة. يمكنني إرسال مقاس الترابيزة، عدد الكراسي، احتياج البوفيه أو النيش، لون التشطيب، وصور مرجعية.'
+        },
+        'Wardrobes': {
+          en: 'Hello Deqah Furniture, I want a wardrobe quote. I can send wall width, height, depth, sliding or hinged preference, mirror needs, drawers, and internal layout.',
+          ar: 'السلام عليكم دقة للأثاث، أريد عرض سعر لدولاب تفصيل. يمكنني إرسال عرض الحائط، الارتفاع، العمق، جرار أو مفصلي، المرايا، الأدراج، والتقسيم الداخلي.'
+        },
+        'Dressing Rooms': {
+          en: 'Hello Deqah Furniture, I want a dressing room quote. I can send room dimensions, open or closed closet preference, lighting needs, drawers, mirrors, and accessories.',
+          ar: 'السلام عليكم دقة للأثاث، أريد عرض سعر لغرفة دريسنج. يمكنني إرسال مقاسات الغرفة، مفتوح أو مغلق، الإضاءة، الأدراج، المرايات، والاكسسوارات.'
+        },
+        'TV Units': {
+          en: 'Hello Deqah Furniture, I want a TV unit quote. I can send wall size, TV size, storage needs, floating shelf preference, lighting details, and reference photos.',
+          ar: 'السلام عليكم دقة للأثاث، أريد عرض سعر لوحدة تلفزيون. يمكنني إرسال مقاس الحائط، مقاس الشاشة، احتياج التخزين، الأرفف المعلقة، الإضاءة، وصور مرجعية.'
+        },
+        'Entry Consoles': {
+          en: 'Hello Deqah Furniture, I want an entry console quote. I can send entrance measurements, mirror size, shoe storage needs, color preference, and reference photos.',
+          ar: 'السلام عليكم دقة للأثاث، أريد عرض سعر لكونسول أو مدخل. يمكنني إرسال مقاسات المدخل، مقاس المرآة، احتياج الجزامة، اللون المفضل، وصور مرجعية.'
+        },
+        'Office Furniture': {
+          en: 'Hello Deqah Furniture, I want office furniture quote. I can send office dimensions, desk size, shelving needs, storage, meeting table needs, and preferred finish.',
+          ar: 'السلام عليكم دقة للأثاث، أريد عرض سعر لأثاث مكتبي. يمكنني إرسال مقاسات المكتب، مقاس المكتب المطلوب، الأرفف، التخزين، ترابيزة الاجتماعات، والتشطيب.'
+        },
+        'Custom Projects': {
+          en: 'Hello Deqah Furniture, I want a custom furniture project quote. I can send dimensions, idea details, preferred materials, colors, budget range, and reference photos.',
+          ar: 'السلام عليكم دقة للأثاث، أريد عرض سعر لمشروع أثاث تفصيل. يمكنني إرسال المقاسات، تفاصيل الفكرة، الخامات المفضلة، الألوان، حدود الميزانية، وصور مرجعية.'
+        }
+      };
+
+      function whatsappLink(message) {
+        return `https://wa.me/201055552574?text=${encodeURIComponent(message)}`;
+      }
+
+      function productWhatsappMessage(productName) {
+        const prompt = productPrompts[productName];
+        return prompt ? prompt[lang] : t(
+          `Hello Deqah Furniture, I want a quote for ${productName}. I can send dimensions, materials, colors, and reference photos.`,
+          `السلام عليكم دقة للأثاث، أريد عرض سعر لـ ${productName}. يمكنني إرسال المقاسات والخامات والألوان وصور مرجعية.`
+        );
+      }
+
+      function galleryWhatsappMessage(item) {
+        return t(
+          `Hello Deqah Furniture, I saw this gallery item: ${item.roomName} (${item.category}). I want something similar and can send my dimensions and preferred finish.`,
+          `السلام عليكم دقة للأثاث، شاهدت هذه الصورة في المعرض: ${item.roomName} (${item.category}). أريد تنفيذ شيء مشابه ويمكنني إرسال المقاسات والتشطيب المفضل.`
+        );
+      }
+
       let lang = localStorage.getItem('deqah-lang') || 'en';
       let gallery = [];
       let galleryCategory = 'all';
@@ -419,7 +523,7 @@
 
       const t = (en, ar) => lang === 'ar' ? ar : en;
 
-      function applyLang(nextLang) {
+      function paintLang(nextLang) {
         lang = nextLang;
         localStorage.setItem('deqah-lang', lang);
         document.documentElement.lang = lang;
@@ -435,20 +539,40 @@
         renderGallery();
       }
 
+      function applyLang(nextLang, animate = true) {
+        if (nextLang === lang && document.querySelector('[data-i18n]').textContent) {
+          paintLang(nextLang);
+          return;
+        }
+
+        if (!animate) {
+          paintLang(nextLang);
+          return;
+        }
+
+        document.body.classList.add('lang-switching');
+        window.setTimeout(() => {
+          paintLang(nextLang);
+          window.requestAnimationFrame(() => {
+            window.setTimeout(() => document.body.classList.remove('lang-switching'), 80);
+          });
+        }, 260);
+      }
+
       function renderShop(filter = 'all') {
         const grid = document.getElementById('shopGrid');
         grid.innerHTML = products
           .filter((item) => filter === 'all' || item[4] === filter)
           .map(([en, ar, descEn, descAr, type, image]) => `
-            <article class="reveal media-card glass overflow-hidden rounded-[32px] transition duration-500 hover:-translate-y-2 hover:shadow-glow">
-              <div class="relative h-56 overflow-hidden">
+            <article class="reveal media-card glass soft-detail overflow-hidden rounded-[38px] transition duration-500 hover:-translate-y-2 hover:shadow-glow">
+              <div class="relative h-56 overflow-hidden rounded-b-[30px]">
                 <img src="${image}" alt="${en}" class="h-full w-full object-cover" loading="lazy" />
                 <span class="absolute left-4 top-4 rounded-full bg-white/82 px-3 py-1 text-xs font-black text-ink backdrop-blur">${type === 'rooms' ? t('Room', 'غرفة') : t('Detail', 'تفصيل')}</span>
               </div>
               <div class="p-5">
                 <h3 class="text-xl font-black">${t(en, ar)}</h3>
                 <p class="mt-3 min-h-[72px] text-sm leading-6 text-slate-600">${t(descEn, descAr)}</p>
-                <a class="mt-5 inline-flex rounded-full bg-ink px-4 py-2 text-sm font-black text-white transition hover:-translate-y-0.5" href="https://wa.me/201055552574?text=${encodeURIComponent('I want a quote for ' + en)}" target="_blank" rel="noreferrer">${t('Ask on WhatsApp', 'اسأل على واتساب')}</a>
+                <a class="mt-5 inline-flex rounded-full bg-ink px-4 py-2 text-sm font-black text-white transition hover:-translate-y-0.5" href="${whatsappLink(productWhatsappMessage(en))}" target="_blank" rel="noreferrer">${t('Ask on WhatsApp', 'اسأل على واتساب')}</a>
               </div>
             </article>
           `).join('');
@@ -474,13 +598,14 @@
         });
         const items = filtered.slice(0, shown);
         document.getElementById('galleryGrid').innerHTML = items.map((item) => `
-          <article class="reveal media-card glass overflow-hidden rounded-[30px]">
-            <div class="h-64 overflow-hidden">
+          <article class="reveal media-card glass soft-detail overflow-hidden rounded-[38px]">
+            <div class="h-64 overflow-hidden rounded-b-[30px]">
               <img src="${item.image}" alt="${item.roomName}" class="h-full w-full object-cover" loading="lazy" />
             </div>
             <div class="p-4">
               <p class="text-xs font-black uppercase tracking-[.16em] text-copper">${item.category}</p>
               <h3 class="mt-2 text-lg font-black">${item.roomName}</h3>
+              <a class="mt-4 inline-flex rounded-full bg-white/70 px-4 py-2 text-sm font-black text-ink ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:bg-white" href="${whatsappLink(galleryWhatsappMessage(item))}" target="_blank" rel="noreferrer">${t('Make similar', 'نفذ مشابه')}</a>
             </div>
           </article>
         `).join('');
@@ -534,11 +659,11 @@
         .then((response) => response.json())
         .then((items) => {
           gallery = items;
-          applyLang(lang);
+          applyLang(lang, false);
         })
         .catch(() => {
           gallery = [];
-          applyLang(lang);
+          applyLang(lang, false);
         });
 
       renderShop();
