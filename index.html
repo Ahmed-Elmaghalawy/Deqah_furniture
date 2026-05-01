@@ -1,346 +1,548 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Deqah Furniture Showroom</title>
+    <meta name="description" content="Deqah Furniture crafts custom bedrooms, kitchens, sofas, salons, wardrobes, kids rooms, TV units, and complete home furniture in Damietta, Egypt." />
+    <title>Deqah Furniture | Custom Furniture Factory</title>
     <script>
       tailwind.config = {
         theme: {
           extend: {
-            colors: {
-              accent: '#d17c41',
-              'accent-dark': '#b15f2f',
-              muted: '#5b5b5b',
+            fontFamily: {
+              display: ['Inter', 'ui-sans-serif', 'system-ui'],
+              arabic: ['Tahoma', 'Arial', 'sans-serif']
             },
-          },
-        },
+            colors: {
+              ink: '#121318',
+              cloud: '#f8fafc',
+              copper: '#c98242',
+              jade: '#14b8a6',
+              berry: '#c026d3',
+              ocean: '#2563eb'
+            },
+            boxShadow: {
+              glass: '0 30px 90px rgba(15, 23, 42, .18)',
+              glow: '0 20px 70px rgba(20, 184, 166, .22)'
+            }
+          }
+        }
       };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        color-scheme: light;
+        --glass: rgba(255, 255, 255, .64);
+        --stroke: rgba(255, 255, 255, .72);
+      }
+
+      * {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        background:
+          radial-gradient(circle at 15% 5%, rgba(20, 184, 166, .18), transparent 30rem),
+          radial-gradient(circle at 85% 8%, rgba(192, 38, 211, .15), transparent 28rem),
+          linear-gradient(135deg, #f8fafc 0%, #eef4ff 45%, #fbf7ef 100%);
+      }
+
+      body[dir="rtl"] {
+        font-family: Tahoma, Arial, sans-serif;
+      }
+
+      .glass {
+        border: 1px solid rgba(255, 255, 255, .68);
+        background: linear-gradient(145deg, rgba(255,255,255,.72), rgba(255,255,255,.38));
+        box-shadow: 0 24px 80px rgba(15, 23, 42, .12), inset 0 1px 0 rgba(255,255,255,.8);
+        backdrop-filter: blur(24px) saturate(150%);
+        -webkit-backdrop-filter: blur(24px) saturate(150%);
+      }
+
+      .glass-dark {
+        border: 1px solid rgba(255, 255, 255, .22);
+        background: linear-gradient(145deg, rgba(15,23,42,.72), rgba(15,23,42,.38));
+        box-shadow: 0 30px 90px rgba(2, 6, 23, .34), inset 0 1px 0 rgba(255,255,255,.16);
+        backdrop-filter: blur(26px) saturate(140%);
+        -webkit-backdrop-filter: blur(26px) saturate(140%);
+      }
+
+      .aurora {
+        position: absolute;
+        inset: auto -8rem -10rem auto;
+        width: min(42vw, 34rem);
+        aspect-ratio: 1;
+        border-radius: 999px;
+        background: conic-gradient(from 90deg, rgba(20,184,166,.52), rgba(37,99,235,.45), rgba(192,38,211,.4), rgba(201,130,66,.42), rgba(20,184,166,.52));
+        filter: blur(42px);
+        opacity: .74;
+        animation: floaty 12s ease-in-out infinite alternate;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px) scale(.985);
+        transition: opacity .7s ease, transform .7s ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .chip.active,
+      .lang-btn.active {
+        background: #121318;
+        color: white;
+        border-color: rgba(18, 19, 24, .9);
+      }
+
+      .media-card img {
+        transition: transform .7s ease, filter .7s ease;
+      }
+
+      .media-card:hover img {
+        transform: scale(1.055);
+        filter: saturate(1.08) contrast(1.03);
+      }
+
+      @keyframes floaty {
+        from { transform: translate3d(0, 0, 0) rotate(0deg); }
+        to { transform: translate3d(-4rem, -2rem, 0) rotate(16deg); }
+      }
+    </style>
   </head>
-  <body class="bg-[#f7f5f2] text-[#1f1f1f] antialiased">
-    <header class="sticky top-0 z-20 border-b border-black/5 bg-white/75 backdrop-blur">
-      <div class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4">
-        <a class="flex items-center gap-3" href="#">
-          <img class="h-14 w-14 rounded-2xl border border-black/10 object-cover shadow-lg" src="images/logo.jpg" alt="Deqah Furniture logo" />
-          <div class="flex flex-col text-xs uppercase tracking-[0.35em]">
-            <span class="text-[0.9rem] font-semibold text-accent">Deqah</span>
-            <span class="text-[0.65rem] text-muted">Furniture</span>
-          </div>
+  <body class="font-display text-ink antialiased">
+    <header class="fixed inset-x-0 top-0 z-50 px-3 py-3">
+      <div class="glass mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-[28px] px-4 py-3">
+        <a href="#home" class="flex min-w-0 items-center gap-3">
+          <img src="images/logo.jpg" alt="Deqah Furniture logo" class="h-12 w-12 rounded-2xl object-cover shadow-lg ring-1 ring-white/70" />
+          <span class="min-w-0">
+            <span class="block truncate text-sm font-black uppercase tracking-[.18em]">Deqah</span>
+            <span class="block text-xs font-semibold text-slate-500" data-i18n="brandSub">Furniture Factory</span>
+          </span>
         </a>
-        <nav class="hidden gap-6 text-sm font-semibold text-[#1f1f1f] md:flex">
-          <a class="transition hover:text-accent" href="#collection">Collections</a>
-          <a class="transition hover:text-accent" href="#gallery">Gallery</a>
-          <a class="transition hover:text-accent" href="#contact">Contact</a>
+
+        <nav class="hidden items-center gap-1 text-sm font-bold lg:flex">
+          <a class="rounded-full px-4 py-2 transition hover:bg-white/70" href="#shop" data-i18n="navShop">Shop</a>
+          <a class="rounded-full px-4 py-2 transition hover:bg-white/70" href="#factory" data-i18n="navFactory">Factory</a>
+          <a class="rounded-full px-4 py-2 transition hover:bg-white/70" href="#gallery" data-i18n="navGallery">Gallery</a>
+          <a class="rounded-full px-4 py-2 transition hover:bg-white/70" href="#contact" data-i18n="navContact">Contact</a>
         </nav>
-        <div class="hidden gap-2 text-sm font-semibold md:flex">
-          <a class="flex items-center gap-1 rounded-full border border-[#1e4b9f]/40 px-4 py-2 text-[#1e4b9f] transition hover:bg-[#1e4b9f]/10" href="https://www.facebook.com/profile.php?id=61577146208164" target="_blank" rel="noreferrer">
-            <span aria-hidden="true" class="text-lg">f</span>
-            Facebook
-          </a>
-          <a class="flex items-center gap-1 rounded-full border border-[#c13584]/40 px-4 py-2 text-[#c13584] transition hover:bg-[#c13584]/10" href="https://www.instagram.com/deqahfurniture" target="_blank" rel="noreferrer">
-            <span aria-hidden="true" class="text-lg">IG</span>
-            Instagram
-          </a>
-          <a class="flex items-center gap-1 rounded-full border border-[#128c7e]/40 px-4 py-2 text-[#128c7e] transition hover:bg-[#128c7e]/10" href="https://wa.me/201055552574" target="_blank" rel="noreferrer">
-            <span aria-hidden="true" class="text-lg">WA</span>
-            WhatsApp
-          </a>
+
+        <div class="flex items-center gap-2">
+          <button class="lang-btn active rounded-full border border-slate-200 bg-white/60 px-3 py-2 text-xs font-black transition" data-lang="en" aria-label="Switch to English">🇬🇧 EN</button>
+          <button class="lang-btn rounded-full border border-slate-200 bg-white/60 px-3 py-2 text-xs font-black transition" data-lang="ar" aria-label="Switch to Arabic">🇦🇪 عربي</button>
+          <a href="https://wa.me/201055552574" target="_blank" rel="noreferrer" class="hidden rounded-full bg-[#25D366] px-4 py-2 text-sm font-black text-white shadow-lg shadow-emerald-500/20 transition hover:-translate-y-0.5 sm:inline-flex" data-i18n="waNow">WhatsApp</a>
         </div>
       </div>
     </header>
 
-    <main class="space-y-16">
-      <section class="relative overflow-hidden bg-[#181818] text-white" id="hero">
-        <div class="absolute inset-0" style="background-image: linear-gradient(135deg, rgba(24,24,24,0.95), rgba(24,24,24,0.65)), url('images/cover_photo.jpg'); background-size: cover; background-position: center;"></div>
-        <div class="relative mx-auto flex max-w-6xl flex-col gap-6 px-6 py-20 md:flex-row md:items-center md:gap-16">
-          <div class="max-w-2xl space-y-5">
-            <p class="text-xs uppercase tracking-[0.45em] text-white/70">Damietta craftsmanship · Egypt</p>
-            <h1 class="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">Modern living starts with intent.</h1>
-            <p class="text-base text-white/80">
-              Deqah Furniture blends artisan woodwork with sleek silhouettes so every room in your home feels tailored, calm, and unmistakably yours. Explore our curated collections for bedrooms,
-              salons, kitchens, and more.
-            </p>
-            <div class="flex flex-wrap gap-3 pt-4">
-              <a class="rounded-full bg-accent px-6 py-3 text-xs font-semibold uppercase tracking-[0.45em] text-white shadow-lg transition hover:bg-[color:var(--accent-dark)]" href="#collection">Browse collections</a>
-              <a class="rounded-full border border-white/60 px-6 py-3 text-xs font-semibold uppercase tracking-[0.45em] text-white transition hover:bg-white hover:text-[#181818]" href="#contact">Visit showroom</a>
+    <main id="home">
+      <section class="relative min-h-[92vh] overflow-hidden px-4 pb-16 pt-28 text-white">
+        <div class="absolute inset-0">
+          <img src="images/cover_photo.jpg" alt="Deqah Furniture cover" class="h-full w-full object-cover" />
+          <div class="absolute inset-0 bg-[linear-gradient(115deg,rgba(2,6,23,.86),rgba(15,23,42,.46)_48%,rgba(2,6,23,.68))]"></div>
+        </div>
+        <div class="aurora"></div>
+
+        <div class="relative mx-auto grid max-w-7xl items-end gap-8 lg:grid-cols-[1.08fr_.92fr]">
+          <div class="reveal max-w-3xl pt-10">
+            <div class="mb-6 inline-flex items-center gap-3 rounded-full border border-white/25 bg-white/12 px-4 py-2 text-xs font-bold uppercase tracking-[.18em] backdrop-blur-xl">
+              <span class="h-2 w-2 rounded-full bg-jade shadow-[0_0_24px_rgba(20,184,166,.9)]"></span>
+              <span data-i18n="heroKicker">Damietta craftsmanship · Egypt</span>
             </div>
-            <div class="flex flex-wrap gap-6 text-sm text-white/80">
-              <span>+20 10 55552574</span>
-              <span>deqahfurniture@gmail.com</span>
+            <h1 class="max-w-4xl text-5xl font-black leading-[.95] tracking-normal sm:text-6xl lg:text-7xl" data-i18n="heroTitle">Custom furniture, made with precision.</h1>
+            <p class="mt-6 max-w-2xl text-lg leading-8 text-white/82" data-i18n="heroText">Deqah Furniture builds modern home furniture from the factory floor to the final room: bedrooms, kitchens, sofas, salons, kids rooms, wardrobes, TV units, dining sets, offices, and custom projects.</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#shop" class="rounded-full bg-white px-6 py-3 text-sm font-black text-ink shadow-glow transition hover:-translate-y-1" data-i18n="heroShop">Explore shop</a>
+              <a href="https://wa.me/201055552574" target="_blank" rel="noreferrer" class="rounded-full border border-white/35 bg-white/12 px-6 py-3 text-sm font-black text-white backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/22" data-i18n="heroQuote">Get a quote</a>
+            </div>
+          </div>
+
+          <div class="reveal glass-dark rounded-[36px] p-4">
+            <div class="grid grid-cols-2 gap-3">
+              <img src="images/logo.jpg" alt="Deqah Furniture logo" class="col-span-1 h-48 w-full rounded-[26px] object-cover" />
+              <div class="rounded-[26px] bg-white/12 p-5">
+                <p class="text-sm text-white/70" data-i18n="taglineLabel">Brand line</p>
+                <p class="mt-3 text-2xl font-black leading-tight" data-i18n="tagline">Not just furniture. Furniture with Deqah.</p>
+              </div>
+              <div class="col-span-2 grid gap-3 sm:grid-cols-3">
+                <div class="rounded-[24px] bg-white/12 p-4">
+                  <p class="text-3xl font-black">302</p>
+                  <p class="text-sm text-white/72" data-i18n="statPhotos">local project photos</p>
+                </div>
+                <div class="rounded-[24px] bg-white/12 p-4">
+                  <p class="text-3xl font-black">12</p>
+                  <p class="text-sm text-white/72" data-i18n="statCats">shop categories</p>
+                </div>
+                <div class="rounded-[24px] bg-white/12 p-4">
+                  <p class="text-3xl font-black">010</p>
+                  <p class="text-sm text-white/72" data-i18n="statWa">55552574 WhatsApp</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="mx-auto max-w-6xl px-6" id="collection">
-        <div class="mb-10 space-y-3">
-          <p class="text-xs uppercase tracking-[0.35em] text-muted">Rooms & Living Areas</p>
-          <h2 class="text-3xl font-semibold leading-tight">Focused collections for every atmosphere</h2>
-          <p class="text-base text-muted">Rooms should feel effortless. Pick from our living, bedroom, kids, or kitchen suites and watch the space fall into balance.</p>
-        </div>
-        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
-            <div class="h-48 bg-cover bg-center" style="background-image:url('images/557086894_122134606790904873_7313724343482866907_n.jpg')"></div>
-            <div class="p-5 space-y-3">
-              <p class="text-xs uppercase tracking-[0.4em] text-muted">Bedrooms</p>
-              <h3 class="text-xl font-semibold">Linen Serenity</h3>
-              <p class="text-sm text-muted">Soft linen palettes, storage-savvy cabinetry, and statement headboards fuel peaceful sleep.</p>
+      <section id="shop" class="px-4 py-20">
+        <div class="mx-auto max-w-7xl">
+          <div class="reveal mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div>
+              <p class="text-sm font-black uppercase tracking-[.22em] text-copper" data-i18n="shopKicker">Shop page</p>
+              <h2 class="mt-3 text-4xl font-black tracking-normal md:text-5xl" data-i18n="shopTitle">Everything the factory can make</h2>
+              <p class="mt-4 max-w-3xl text-slate-600" data-i18n="shopText">Choose a product family, send dimensions on WhatsApp, and Deqah can tailor the size, wood, upholstery, color, storage, hardware, and finish.</p>
             </div>
-          </article>
-          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
-            <div class="h-48 bg-cover bg-center" style="background-image:url('images/557115400_122132776844904873_3985610575456837028_n.jpg')"></div>
-            <div class="p-5 space-y-3">
-              <p class="text-xs uppercase tracking-[0.4em] text-muted">Kids Room</p>
-              <h3 class="text-xl font-semibold">Kids Explorer Suite</h3>
-              <p class="text-sm text-muted">Playful colors, durable finishes, and modular pieces that grow with the child.</p>
+            <div class="glass rounded-full p-1">
+              <button class="chip active rounded-full border border-transparent px-4 py-2 text-sm font-black transition" data-category="all" data-i18n="filterAll">All</button>
+              <button class="chip rounded-full border border-transparent px-4 py-2 text-sm font-black transition" data-category="rooms" data-i18n="filterRooms">Rooms</button>
+              <button class="chip rounded-full border border-transparent px-4 py-2 text-sm font-black transition" data-category="details" data-i18n="filterDetails">Details</button>
             </div>
-          </article>
-          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
-            <div class="h-48 bg-cover bg-center" style="background-image:url('images/556432004_122134180940904873_630124047064482578_n.jpg')"></div>
-            <div class="p-5 space-y-3">
-              <p class="text-xs uppercase tracking-[0.4em] text-muted">Couches &amp; Lounges</p>
-              <h3 class="text-xl font-semibold">Couture Couches</h3>
-              <p class="text-sm text-muted">Deep seats, bespoke upholstery, and silhouettes that anchor your salon with comfort.</p>
-            </div>
-          </article>
-          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
-            <div class="h-48 bg-cover bg-center" style="background-image:url('images/557717310_122134181000904873_6139736172668088212_n.jpg')"></div>
-            <div class="p-5 space-y-3">
-              <p class="text-xs uppercase tracking-[0.4em] text-muted">Kitchen</p>
-              <h3 class="text-xl font-semibold">Gallery Kitchen</h3>
-              <p class="text-sm text-muted">Modern grids, marble accents, and worktops engineered for daily creativity.</p>
-            </div>
-          </article>
-          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
-            <div class="h-48 bg-cover bg-center" style="background-image:url('images/555732834_122132649224904873_3996371935308415350_n.jpg')"></div>
-            <div class="p-5 space-y-3">
-              <p class="text-xs uppercase tracking-[0.4em] text-muted">Salon &amp; Entry</p>
-              <h3 class="text-xl font-semibold">Salon &amp; Entry</h3>
-              <p class="text-sm text-muted">Versatile seating, polished woods, rugs, and lighting for ceremonial moments.</p>
-            </div>
-          </article>
-          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
-            <div class="h-48 bg-cover bg-center" style="background-image:url('images/557551318_122134181018904873_2491592712817081493_n.jpg')"></div>
-            <div class="p-5 space-y-3">
-              <p class="text-xs uppercase tracking-[0.4em] text-muted">Entrée</p>
-              <h3 class="text-xl font-semibold">First Impression</h3>
-              <p class="text-sm text-muted">Console tables, mirrors, and storage pieces that define the first impression.</p>
-            </div>
-          </article>
-          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
-            <div class="h-48 bg-cover bg-center" style="background-image:url('images/549771716_122131535492904873_4786114191187566194_n.jpg')"></div>
-            <div class="p-5 space-y-3">
-              <p class="text-xs uppercase tracking-[0.4em] text-muted">Sofas</p>
-              <h3 class="text-xl font-semibold">Gathering Sofas</h3>
-              <p class="text-sm text-muted">Custom lengths, premium foams, and tailored stitching for your favorite gatherings.</p>
-            </div>
-          </article>
-          <article class="group overflow-hidden rounded-[32px] border border-black/5 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
-            <div class="h-48 bg-cover bg-center" style="background-image:url('images/553146481_122132649200904873_5712447128769017181_n.jpg')"></div>
-            <div class="p-5 space-y-3">
-              <p class="text-xs uppercase tracking-[0.4em] text-muted">Statement Living</p>
-              <h3 class="text-xl font-semibold">Statement Living</h3>
-              <p class="text-sm text-muted">Architectural pieces, textured surfaces, and neutral palettes for calm confidence.</p>
-            </div>
-          </article>
+          </div>
+
+          <div id="shopGrid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
         </div>
       </section>
 
-      <section class="mx-auto max-w-6xl px-6" id="gallery">
-        <div class="mb-8 space-y-2">
-          <p class="text-xs uppercase tracking-[0.35em] text-muted">Imagine the space</p>
-          <h2 class="text-3xl font-semibold leading-tight">Photo tour from our Damietta showroom</h2>
+      <section id="factory" class="px-4 py-16">
+        <div class="glass relative mx-auto grid max-w-7xl overflow-hidden rounded-[42px] p-6 md:grid-cols-[.9fr_1.1fr] md:p-10">
+          <div class="reveal relative z-10">
+            <p class="text-sm font-black uppercase tracking-[.22em] text-ocean" data-i18n="factoryKicker">Factory workflow</p>
+            <h2 class="mt-3 text-4xl font-black tracking-normal" data-i18n="factoryTitle">From idea to installed room</h2>
+            <p class="mt-4 text-slate-600" data-i18n="factoryText">The site is designed around what customers actually need: fast contact, product families, real project photos, and bilingual browsing for Arabic and English visitors.</p>
+            <div class="mt-8 grid gap-3">
+              <div class="rounded-[24px] bg-white/58 p-5"><strong data-i18n="step1">1. Send dimensions and inspiration</strong><p class="mt-1 text-sm text-slate-600" data-i18n="step1Text">Share room sizes, reference photos, and budget through WhatsApp.</p></div>
+              <div class="rounded-[24px] bg-white/58 p-5"><strong data-i18n="step2">2. Select materials and finishes</strong><p class="mt-1 text-sm text-slate-600" data-i18n="step2Text">Choose wood tone, fabric, marble look, handles, lighting, and storage details.</p></div>
+              <div class="rounded-[24px] bg-white/58 p-5"><strong data-i18n="step3">3. Build, deliver, install</strong><p class="mt-1 text-sm text-slate-600" data-i18n="step3Text">Factory-made pieces are prepared for delivery and on-site installation.</p></div>
+            </div>
+          </div>
+          <div class="reveal mt-8 grid grid-cols-2 gap-3 md:mt-0">
+            <img src="images/557717310_122134181000904873_6139736172668088212_n.jpg" alt="Custom kitchen furniture" class="h-64 w-full rounded-[30px] object-cover shadow-glass" />
+            <img src="images/549771716_122131535492904873_4786114191187566194_n.jpg" alt="Custom sofa furniture" class="mt-10 h-64 w-full rounded-[30px] object-cover shadow-glass" />
+            <img src="images/557086894_122134606790904873_7313724343482866907_n.jpg" alt="Custom bedroom furniture" class="col-span-2 h-72 w-full rounded-[30px] object-cover shadow-glass" />
+          </div>
         </div>
-        <div class="flex flex-wrap items-end gap-4" aria-label="Gallery controls">
-          <label class="flex flex-col gap-1 text-[0.65rem] uppercase tracking-[0.3em] text-muted">
-            <span>Category</span>
-            <select id="categoryFilter" class="rounded-[12px] border border-black/10 bg-white px-3 py-2 text-sm focus:border-accent focus:outline-none">
-              <option value="all">All rooms</option>
-            </select>
-          </label>
-          <label class="flex flex-col gap-1 text-[0.65rem] uppercase tracking-[0.3em] text-muted">
-            <span>Tag</span>
-            <select id="tagFilter" class="rounded-[12px] border border-black/10 bg-white px-3 py-2 text-sm focus:border-accent focus:outline-none">
-              <option value="all">All tags</option>
-            </select>
-          </label>
-          <label class="flex flex-col gap-1 text-[0.65rem] uppercase tracking-[0.3em] text-muted">
-            <span>Sort</span>
-            <select id="sortSelect" class="rounded-[12px] border border-black/10 bg-white px-3 py-2 text-sm focus:border-accent focus:outline-none">
-              <option value="name-asc">Room name ?</option>
-              <option value="name-desc">Room name ?</option>
-            </select>
-          </label>
-          <label class="flex flex-1 min-w-[220px] flex-col gap-1 text-[0.65rem] uppercase tracking-[0.3em] text-muted">
-            <span>Search</span>
-            <input id="searchInput" type="search" placeholder="Search rooms or tags" class="rounded-[12px] border border-black/10 bg-white px-3 py-2 text-sm focus:border-accent focus:outline-none" />
-          </label>
-        </div>
-        <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3" id="dynamicGallery"></div>
-        <p id="galleryEmpty" class="mt-6 text-sm text-muted hidden">No rooms match your filters.</p>
       </section>
 
-      <section class="mx-auto max-w-6xl px-6" id="contact">
-        <div class="mb-8 space-y-2">
-          <p class="text-xs uppercase tracking-[0.35em] text-muted">Stay connected</p>
-          <h2 class="text-3xl font-semibold leading-tight">Visit, call, or message us</h2>
-          <p class="text-base text-muted">Deqah Furniture is headquartered in Damietta, Egypt. Our showroom hosts private consultations every day—book ahead to secure designers, upholsterers, and delivery partners in one visit.</p>
-        </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="rounded-[24px] border border-black/5 bg-white p-6 shadow-lg">
-            <h3 class="text-xl font-semibold">Contact details</h3>
-            <p class="mt-4 text-sm text-muted"><strong class="text-[#1f1f1f]">Phone / WhatsApp</strong><br />+20 10 55552574</p>
-            <p class="mt-2 text-sm text-muted"><strong class="text-[#1f1f1f]">Email</strong><br />deqahfurniture@gmail.com</p>
-            <p class="mt-2 text-sm text-muted"><strong class="text-[#1f1f1f]">Website</strong><br /><a class="text-accent" href="https://deqahfurniture.com/">deqahfurniture.com</a></p>
-          </div>
-          <div class="rounded-[24px] border border-black/5 bg-white p-6 shadow-lg">
-            <h3 class="text-xl font-semibold">Social</h3>
-            <p class="mt-3 text-sm text-muted">Follow Deqah Furniture for real-time showroom drops.</p>
-            <div class="mt-4 flex flex-wrap gap-3">
-              <a class="flex items-center gap-2 rounded-full border border-[#1e4b9f]/40 px-4 py-2 text-sm font-semibold text-[#1e4b9f] transition hover:bg-[#1e4b9f]/10" href="https://www.facebook.com/profile.php?id=61577146208164" target="_blank" rel="noreferrer">
-                <span aria-hidden="true" class="text-lg">f</span>
-                Facebook
-              </a>
-              <a class="flex items-center gap-2 rounded-full border border-[#c13584]/40 px-4 py-2 text-sm font-semibold text-[#c13584] transition hover:bg-[#c13584]/10" href="https://www.instagram.com/deqahfurniture" target="_blank" rel="noreferrer">
-                <span aria-hidden="true" class="text-lg">??</span>
-                Instagram
-              </a>
-              <a class="flex items-center gap-2 rounded-full border border-[#128c7e]/40 px-4 py-2 text-sm font-semibold text-[#128c7e] transition hover:bg-[#128c7e]/10" href="https://wa.me/201055552574" target="_blank" rel="noreferrer">
-                <span aria-hidden="true" class="text-lg">??</span>
-                WhatsApp
-              </a>
+      <section id="gallery" class="px-4 py-20">
+        <div class="mx-auto max-w-7xl">
+          <div class="reveal mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p class="text-sm font-black uppercase tracking-[.22em] text-berry" data-i18n="galleryKicker">Project gallery</p>
+              <h2 class="mt-3 text-4xl font-black tracking-normal md:text-5xl" data-i18n="galleryTitle">Real furniture photos</h2>
+              <p class="mt-4 max-w-2xl text-slate-600" data-i18n="galleryText">Browse the full local image library from Deqah Furniture and filter by category.</p>
             </div>
-            <p class="mt-4 text-sm text-muted"><a class="text-[#1f1f1f] font-semibold" href="https://www.bing.com/maps/search?v=2&pc=FACEBK&mid=8100&mkt=en-GB&q=%D9%85%D8%B5%D8%B1%2C+Damietta%2C+Egypt">Showroom in Damietta</a></p>
+            <label class="glass flex min-w-[240px] items-center gap-3 rounded-full px-4 py-3">
+              <span class="text-sm font-black" data-i18n="searchLabel">Search</span>
+              <input id="gallerySearch" type="search" class="w-full bg-transparent text-sm outline-none placeholder:text-slate-400" placeholder="sofa, kitchen, bedroom" />
+            </label>
           </div>
-          <div class="rounded-[24px] border border-black/5 bg-white p-6 shadow-lg">
-            <h3 class="text-xl font-semibold">Visit hours</h3>
-            <p class="mt-4 text-sm text-muted"><strong class="text-[#1f1f1f]">Sunday–Thursday</strong><br />10:00 AM – 7:00 PM</p>
-            <p class="mt-2 text-sm text-muted"><strong class="text-[#1f1f1f]">Friday</strong><br />11:00 AM – 5:00 PM</p>
-            <p class="mt-2 text-sm text-muted"><strong class="text-[#1f1f1f]">Saturday</strong><br />By appointment</p>
+          <div id="galleryFilters" class="mb-8 flex flex-wrap gap-2"></div>
+          <div id="galleryGrid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+          <div class="mt-10 text-center">
+            <button id="loadMore" class="glass rounded-full px-7 py-3 text-sm font-black transition hover:-translate-y-1" data-i18n="loadMore">Load more photos</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="px-4 pb-10 pt-16">
+        <div class="glass-dark mx-auto max-w-7xl overflow-hidden rounded-[42px] p-6 text-white md:p-10">
+          <div class="grid gap-8 lg:grid-cols-[1fr_.9fr]">
+            <div class="reveal">
+              <p class="text-sm font-black uppercase tracking-[.22em] text-white/60" data-i18n="contactKicker">Contact</p>
+              <h2 class="mt-3 text-4xl font-black tracking-normal md:text-5xl" data-i18n="contactTitle">Visit, call, or message Deqah</h2>
+              <p class="mt-4 max-w-2xl text-white/70" data-i18n="contactText">Based in Damietta, Egypt. Send your room dimensions and inspiration, or follow the showroom updates on social media.</p>
+              <div class="mt-8 flex flex-wrap gap-3">
+                <a class="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1" href="https://wa.me/201055552574" target="_blank" rel="noreferrer">
+                  <span class="grid h-7 w-7 place-items-center rounded-full bg-white text-[#25D366]">☎</span>
+                  WhatsApp 01055552574
+                </a>
+                <a class="inline-flex items-center gap-2 rounded-full bg-[#1877F2] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1" href="https://www.facebook.com/profile.php?id=61577146208164" target="_blank" rel="noreferrer">
+                  <span class="grid h-7 w-7 place-items-center rounded-full bg-white text-[#1877F2]">f</span>
+                  Facebook
+                </a>
+                <a class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f58529] via-[#dd2a7b] to-[#8134af] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1" href="https://www.instagram.com/deqahfurniture" target="_blank" rel="noreferrer">
+                  <span class="grid h-7 w-7 place-items-center rounded-full bg-white text-[#dd2a7b]">◎</span>
+                  Instagram
+                </a>
+              </div>
+            </div>
+            <div class="reveal grid gap-3">
+              <div class="rounded-[28px] bg-white/10 p-5">
+                <p class="text-sm text-white/55" data-i18n="phoneLabel">Phone / WhatsApp</p>
+                <p class="mt-1 text-2xl font-black">+20 10 55552574</p>
+              </div>
+              <div class="rounded-[28px] bg-white/10 p-5">
+                <p class="text-sm text-white/55">Email</p>
+                <p class="mt-1 text-2xl font-black">deqahfurniture@gmail.com</p>
+              </div>
+              <div class="rounded-[28px] bg-white/10 p-5">
+                <p class="text-sm text-white/55" data-i18n="locationLabel">Location</p>
+                <p class="mt-1 text-2xl font-black" data-i18n="location">Damietta, Egypt</p>
+              </div>
+              <div class="rounded-[28px] bg-white/10 p-5">
+                <p class="text-sm text-white/55" data-i18n="domainLabel">Domain</p>
+                <a class="mt-1 block text-2xl font-black text-white" href="https://deqahfurniture.com/">deqahfurniture.com</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="mt-16 border-t border-black/5 bg-white/70 pb-12 pt-8">
-      <div class="mx-auto max-w-6xl px-6 text-center text-sm text-muted">
-        © 2026 Deqah Furniture · Damietta, Egypt
+    <footer class="px-4 pb-8">
+      <div class="mx-auto flex max-w-7xl flex-col justify-between gap-3 px-2 text-sm font-semibold text-slate-500 md:flex-row">
+        <p>© 2026 Deqah Furniture · Damietta, Egypt</p>
+        <p data-i18n="footer">Static HTML, Tailwind CSS, and JavaScript for GitHub Pages.</p>
       </div>
     </footer>
 
     <script>
-      (function () {
-        const galleryGrid = document.getElementById('dynamicGallery');
-        const emptyState = document.getElementById('galleryEmpty');
-        const categoryFilter = document.getElementById('categoryFilter');
-        const tagFilter = document.getElementById('tagFilter');
-        const sortSelect = document.getElementById('sortSelect');
-        const searchInput = document.getElementById('searchInput');
-        let galleryItems = [];
+      const copy = {
+        en: {
+          brandSub: 'Furniture Factory',
+          navShop: 'Shop',
+          navFactory: 'Factory',
+          navGallery: 'Gallery',
+          navContact: 'Contact',
+          waNow: 'WhatsApp',
+          heroKicker: 'Damietta craftsmanship · Egypt',
+          heroTitle: 'Custom furniture, made with precision.',
+          heroText: 'Deqah Furniture builds modern home furniture from the factory floor to the final room: bedrooms, kitchens, sofas, salons, kids rooms, wardrobes, TV units, dining sets, offices, and custom projects.',
+          heroShop: 'Explore shop',
+          heroQuote: 'Get a quote',
+          taglineLabel: 'Brand line',
+          tagline: 'Not just furniture. Furniture with Deqah.',
+          statPhotos: 'local project photos',
+          statCats: 'shop categories',
+          statWa: '55552574 WhatsApp',
+          shopKicker: 'Shop page',
+          shopTitle: 'Everything the factory can make',
+          shopText: 'Choose a product family, send dimensions on WhatsApp, and Deqah can tailor the size, wood, upholstery, color, storage, hardware, and finish.',
+          filterAll: 'All',
+          filterRooms: 'Rooms',
+          filterDetails: 'Details',
+          factoryKicker: 'Factory workflow',
+          factoryTitle: 'From idea to installed room',
+          factoryText: 'The site is designed around what customers actually need: fast contact, product families, real project photos, and bilingual browsing for Arabic and English visitors.',
+          step1: '1. Send dimensions and inspiration',
+          step1Text: 'Share room sizes, reference photos, and budget through WhatsApp.',
+          step2: '2. Select materials and finishes',
+          step2Text: 'Choose wood tone, fabric, marble look, handles, lighting, and storage details.',
+          step3: '3. Build, deliver, install',
+          step3Text: 'Factory-made pieces are prepared for delivery and on-site installation.',
+          galleryKicker: 'Project gallery',
+          galleryTitle: 'Real furniture photos',
+          galleryText: 'Browse the full local image library from Deqah Furniture and filter by category.',
+          searchLabel: 'Search',
+          loadMore: 'Load more photos',
+          contactKicker: 'Contact',
+          contactTitle: 'Visit, call, or message Deqah',
+          contactText: 'Based in Damietta, Egypt. Send your room dimensions and inspiration, or follow the showroom updates on social media.',
+          phoneLabel: 'Phone / WhatsApp',
+          locationLabel: 'Location',
+          location: 'Damietta, Egypt',
+          domainLabel: 'Domain',
+          footer: 'Static HTML, Tailwind CSS, and JavaScript for GitHub Pages.'
+        },
+        ar: {
+          brandSub: 'مصنع أثاث',
+          navShop: 'المتجر',
+          navFactory: 'المصنع',
+          navGallery: 'المعرض',
+          navContact: 'تواصل',
+          waNow: 'واتساب',
+          heroKicker: 'حرفية دمياط · مصر',
+          heroTitle: 'أثاث تفصيل مصنوع بدقة.',
+          heroText: 'دقة للأثاث تصنع أثاث البيت الحديث من المصنع حتى الغرفة: غرف نوم، مطابخ، كنبات، صالونات، غرف أطفال، دواليب، وحدات تلفزيون، سفرات، مكاتب، ومشروعات تفصيل.',
+          heroShop: 'تصفح المتجر',
+          heroQuote: 'اطلب عرض سعر',
+          taglineLabel: 'جملة العلامة',
+          tagline: 'مش أي أثاث. ده أثاث بدقة.',
+          statPhotos: 'صورة مشروع محلية',
+          statCats: 'أقسام متجر',
+          statWa: '55552574 واتساب',
+          shopKicker: 'صفحة المتجر',
+          shopTitle: 'كل ما يمكن تصنيعه في المصنع',
+          shopText: 'اختر نوع المنتج، أرسل المقاسات على واتساب، ودقة تنفذ المقاس والخشب والقماش واللون والتخزين والاكسسوارات والتشطيب.',
+          filterAll: 'الكل',
+          filterRooms: 'الغرف',
+          filterDetails: 'التفاصيل',
+          factoryKicker: 'طريقة العمل',
+          factoryTitle: 'من الفكرة إلى تركيب الغرفة',
+          factoryText: 'الموقع مبني حول احتياج العميل: تواصل سريع، أقسام واضحة، صور أعمال حقيقية، وتصفح عربي وإنجليزي.',
+          step1: '١. إرسال المقاسات والإلهام',
+          step1Text: 'أرسل مقاسات الغرفة وصور مرجعية والميزانية عبر واتساب.',
+          step2: '٢. اختيار الخامات والتشطيبات',
+          step2Text: 'اختر لون الخشب والقماش وشكل الرخام والمقابض والإضاءة وتفاصيل التخزين.',
+          step3: '٣. تصنيع وتوصيل وتركيب',
+          step3Text: 'يتم تجهيز القطع في المصنع للتوصيل والتركيب داخل المكان.',
+          galleryKicker: 'معرض المشاريع',
+          galleryTitle: 'صور أثاث حقيقية',
+          galleryText: 'تصفح مكتبة الصور المحلية الكاملة لدقة للأثاث مع فلترة حسب القسم.',
+          searchLabel: 'بحث',
+          loadMore: 'عرض صور أكثر',
+          contactKicker: 'تواصل',
+          contactTitle: 'زورنا أو اتصل أو راسل دقة',
+          contactText: 'مقرنا في دمياط، مصر. أرسل مقاسات الغرف والإلهام، أو تابع أحدث أعمال المعرض على السوشيال ميديا.',
+          phoneLabel: 'هاتف / واتساب',
+          locationLabel: 'الموقع',
+          location: 'دمياط، مصر',
+          domainLabel: 'الدومين',
+          footer: 'HTML و Tailwind CSS و JavaScript بشكل ثابت مناسب لـ GitHub Pages.'
+        }
+      };
 
-        const populateFilters = (items) => {
-          const categories = Array.from(new Set(items.map((item) => item.category))).sort();
-          categoryFilter.innerHTML =
-            '<option value="all">All rooms</option>' +
-            categories.map((cat) => `<option value="${cat}">${cat}</option>`).join('');
+      const products = [
+        ['Bedrooms', 'غرف نوم', 'Complete beds, headboards, nightstands, dressers, and storage walls.', 'أسرة كاملة، هيدبورد، كومود، تسريحات، وحلول تخزين.', 'rooms', 'images/557086894_122134606790904873_7313724343482866907_n.jpg'],
+        ['Sofas & Sectionals', 'كنبات وركنات', 'Custom sizes, premium foam, upholstery, pillows, and lounge seating.', 'مقاسات تفصيل، إسفنج فاخر، أقمشة، مخدات، وجلسات مريحة.', 'rooms', 'images/549771716_122131535492904873_4786114191187566194_n.jpg'],
+        ['Salon & Majlis', 'صالونات ومجالس', 'Statement seating, classic-modern silhouettes, consoles, and tables.', 'جلسات مميزة، تصميمات كلاسيك مودرن، كونسول، وترابيزات.', 'rooms', 'images/547463871_122131535504904873_1959018591388426528_n.jpg'],
+        ['Kitchens', 'مطابخ', 'Cabinets, islands, pantry storage, marble-look worktops, and lighting.', 'وحدات مطبخ، جزر، تخزين، أسطح بشكل الرخام، وإضاءة.', 'rooms', 'images/557717310_122134181000904873_6139736172668088212_n.jpg'],
+        ['Kids Rooms', 'غرف أطفال', 'Bunk beds, study corners, playful storage, wardrobes, and safe finishes.', 'أسرة دورين، مكاتب مذاكرة، تخزين مرح، دواليب، وتشطيبات آمنة.', 'rooms', 'images/557115400_122132776844904873_3985610575456837028_n.jpg'],
+        ['Dining Rooms', 'غرف سفرة', 'Dining tables, chairs, buffets, display cabinets, and serving units.', 'ترابيزات سفرة، كراسي، بوفيه، نيش، ووحدات تقديم.', 'rooms', 'images/553146481_122132649200904873_5712447128769017181_n.jpg'],
+        ['Wardrobes', 'دواليب', 'Hinged or sliding wardrobes with mirrors, drawers, lighting, and organizers.', 'دواليب مفصلية أو جرار مع مرايات، أدراج، إضاءة، وتقسيم داخلي.', 'details', 'images/558462182_122134290392904873_5334494313390048990_n.jpg'],
+        ['Dressing Rooms', 'غرف دريسنج', 'Open or closed closet systems tailored to the room and wardrobe size.', 'أنظمة دريسنج مفتوحة أو مغلقة حسب المساحة وحجم الملابس.', 'details', 'images/559604661_122134290404904873_4487465417185899188_n.jpg'],
+        ['TV Units', 'وحدات تلفزيون', 'Media walls, floating shelves, storage drawers, and lighting details.', 'حوائط تلفزيون، أرفف معلقة، أدراج تخزين، وتفاصيل إضاءة.', 'details', 'images/558893004_122134417040904873_8825204183096515341_n.jpg'],
+        ['Entry Consoles', 'كونسول ومداخل', 'Consoles, mirrors, shoe storage, and welcoming entrance pieces.', 'كونسول، مرايات، جزامات، وقطع استقبال للمداخل.', 'details', 'images/557551318_122134181018904873_2491592712817081493_n.jpg'],
+        ['Office Furniture', 'أثاث مكتبي', 'Desks, shelving, meeting tables, reception counters, and storage.', 'مكاتب، أرفف، ترابيزات اجتماعات، كاونترات استقبال، وتخزين.', 'details', 'images/555962454_122132649236904873_4063000270795588412_n.jpg'],
+        ['Custom Projects', 'مشروعات تفصيل', 'Any room concept can be measured, designed, manufactured, and installed.', 'أي فكرة غرفة يمكن رفع مقاسها وتصميمها وتصنيعها وتركيبها.', 'rooms', 'images/549324224_122131327802904873_8430820305447051412_n.jpg']
+      ];
 
-          const tags = Array.from(new Set(items.flatMap((item) => item.tags))).sort();
-          tagFilter.innerHTML =
-            '<option value="all">All tags</option>' +
-            tags.map((tag) => `<option value="${tag}">${tag}</option>`).join('');
-        };
+      let lang = localStorage.getItem('deqah-lang') || 'en';
+      let gallery = [];
+      let galleryCategory = 'all';
+      let shown = 24;
 
-        const renderGallery = (items) => {
-          if (!items.length) {
-            galleryGrid.innerHTML = '';
-            emptyState.classList.remove('hidden');
-            return;
-          }
+      const t = (en, ar) => lang === 'ar' ? ar : en;
 
-          emptyState.classList.add('hidden');
-          galleryGrid.innerHTML = '';
+      function applyLang(nextLang) {
+        lang = nextLang;
+        localStorage.setItem('deqah-lang', lang);
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        document.body.dir = document.documentElement.dir;
+        document.querySelectorAll('[data-i18n]').forEach((node) => {
+          const key = node.dataset.i18n;
+          if (copy[lang][key]) node.textContent = copy[lang][key];
+        });
+        document.querySelectorAll('.lang-btn').forEach((btn) => btn.classList.toggle('active', btn.dataset.lang === lang));
+        renderShop(document.querySelector('.chip.active')?.dataset.category || 'all');
+        renderGalleryFilters();
+        renderGallery();
+      }
 
-          items.forEach((item) => {
-            const card = document.createElement('article');
-            card.className = 'flex flex-col rounded-[32px] bg-white p-0 shadow-xl transition duration-200 hover:-translate-y-2 hover:shadow-2xl min-h-[360px] overflow-hidden';
-            card.innerHTML = `
-              <div class="h-[210px] bg-cover bg-center" style="background-image: url('${item.image}')"></div>
-              <div class="flex flex-col gap-3 p-5">
-                <div class="flex flex-col gap-1">
-                  <p class="text-[0.65rem] uppercase tracking-[0.35em] text-muted">${item.category}</p>
-                  <h3 class="text-xl font-semibold">${item.roomName}</h3>
-                </div>
-                <p class="text-sm text-muted">${item.description}</p>
-                <div class="flex flex-wrap gap-2">
-                  ${item.tags
-                    .map(
-                      (tag) =>
-                        `<span class="inline-flex items-center gap-1 rounded-full border border-accent/30 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-accent">${tag}</span>`
-                    )
-                    .join('')}
-                </div>
+      function renderShop(filter = 'all') {
+        const grid = document.getElementById('shopGrid');
+        grid.innerHTML = products
+          .filter((item) => filter === 'all' || item[4] === filter)
+          .map(([en, ar, descEn, descAr, type, image]) => `
+            <article class="reveal media-card glass overflow-hidden rounded-[32px] transition duration-500 hover:-translate-y-2 hover:shadow-glow">
+              <div class="relative h-56 overflow-hidden">
+                <img src="${image}" alt="${en}" class="h-full w-full object-cover" loading="lazy" />
+                <span class="absolute left-4 top-4 rounded-full bg-white/82 px-3 py-1 text-xs font-black text-ink backdrop-blur">${type === 'rooms' ? t('Room', 'غرفة') : t('Detail', 'تفصيل')}</span>
               </div>
-            `;
-            galleryGrid.appendChild(card);
+              <div class="p-5">
+                <h3 class="text-xl font-black">${t(en, ar)}</h3>
+                <p class="mt-3 min-h-[72px] text-sm leading-6 text-slate-600">${t(descEn, descAr)}</p>
+                <a class="mt-5 inline-flex rounded-full bg-ink px-4 py-2 text-sm font-black text-white transition hover:-translate-y-0.5" href="https://wa.me/201055552574?text=${encodeURIComponent('I want a quote for ' + en)}" target="_blank" rel="noreferrer">${t('Ask on WhatsApp', 'اسأل على واتساب')}</a>
+              </div>
+            </article>
+          `).join('');
+        observeReveals();
+      }
+
+      function renderGalleryFilters() {
+        const filters = document.getElementById('galleryFilters');
+        const categories = ['all', ...new Set(gallery.map((item) => item.category).filter(Boolean))];
+        filters.innerHTML = categories.map((cat) => `
+          <button class="gallery-filter rounded-full border border-slate-200 bg-white/60 px-4 py-2 text-sm font-black transition hover:bg-white ${cat === galleryCategory ? 'active' : ''}" data-gallery-category="${cat}">
+            ${cat === 'all' ? t('All photos', 'كل الصور') : cat}
+          </button>
+        `).join('');
+      }
+
+      function renderGallery() {
+        const query = document.getElementById('gallerySearch')?.value.trim().toLowerCase() || '';
+        const filtered = gallery.filter((item) => {
+          const matchesCat = galleryCategory === 'all' || item.category === galleryCategory;
+          const text = `${item.roomName} ${item.category} ${(item.tags || []).join(' ')}`.toLowerCase();
+          return matchesCat && text.includes(query);
+        });
+        const items = filtered.slice(0, shown);
+        document.getElementById('galleryGrid').innerHTML = items.map((item) => `
+          <article class="reveal media-card glass overflow-hidden rounded-[30px]">
+            <div class="h-64 overflow-hidden">
+              <img src="${item.image}" alt="${item.roomName}" class="h-full w-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-4">
+              <p class="text-xs font-black uppercase tracking-[.16em] text-copper">${item.category}</p>
+              <h3 class="mt-2 text-lg font-black">${item.roomName}</h3>
+            </div>
+          </article>
+        `).join('');
+        document.getElementById('loadMore').style.display = filtered.length > shown ? 'inline-flex' : 'none';
+        observeReveals();
+      }
+
+      function observeReveals() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
           });
-        };
+        }, { threshold: .12 });
+        document.querySelectorAll('.reveal:not(.is-visible)').forEach((node) => observer.observe(node));
+      }
 
-        const applyFilters = () => {
-          if (!galleryItems.length) return;
+      document.addEventListener('click', (event) => {
+        const langButton = event.target.closest('.lang-btn');
+        if (langButton) applyLang(langButton.dataset.lang);
 
-          let filtered = [...galleryItems];
-          const category = categoryFilter.value;
-          const tag = tagFilter.value;
-          const searchTerm = searchInput.value.trim().toLowerCase();
+        const chip = event.target.closest('.chip');
+        if (chip) {
+          document.querySelectorAll('.chip').forEach((btn) => btn.classList.remove('active'));
+          chip.classList.add('active');
+          renderShop(chip.dataset.category);
+        }
 
-          if (category !== 'all') {
-            filtered = filtered.filter((item) => item.category === category);
-          }
+        const galleryButton = event.target.closest('.gallery-filter');
+        if (galleryButton) {
+          galleryCategory = galleryButton.dataset.galleryCategory;
+          shown = 24;
+          renderGalleryFilters();
+          renderGallery();
+        }
+      });
 
-          if (tag !== 'all') {
-            filtered = filtered.filter((item) => item.tags.includes(tag));
-          }
+      document.getElementById('gallerySearch').addEventListener('input', () => {
+        shown = 24;
+        renderGallery();
+      });
 
-          if (searchTerm) {
-            filtered = filtered.filter(
-              (item) =>
-                item.roomName.toLowerCase().includes(searchTerm) ||
-                item.tags.some((t) => t.toLowerCase().includes(searchTerm))
-            );
-          }
+      document.getElementById('loadMore').addEventListener('click', () => {
+        shown += 24;
+        renderGallery();
+      });
 
-          const sortValue = sortSelect.value;
-          filtered.sort((a, b) =>
-            sortValue === 'name-asc' ? a.roomName.localeCompare(b.roomName) : b.roomName.localeCompare(a.roomName)
-          );
+      fetch('gallery.json')
+        .then((response) => response.json())
+        .then((items) => {
+          gallery = items;
+          applyLang(lang);
+        })
+        .catch(() => {
+          gallery = [];
+          applyLang(lang);
+        });
 
-          renderGallery(filtered);
-        };
-
-        [categoryFilter, tagFilter, sortSelect, searchInput].forEach((control) =>
-          control.addEventListener('input', applyFilters)
-        );
-
-        fetch('gallery.json')
-          .then((response) => {
-            if (!response.ok) throw new Error('Gallery data failed to load');
-            return response.json();
-          })
-          .then((data) => {
-            galleryItems = data;
-            populateFilters(data);
-            applyFilters();
-          })
-          .catch(() => {
-            galleryGrid.innerHTML = '<p class="text-sm text-red-600">Unable to load gallery metadata.</p>';
-            emptyState.classList.add('hidden');
-          });
-      })();
+      renderShop();
+      observeReveals();
     </script>
   </body>
 </html>
-
-
-
